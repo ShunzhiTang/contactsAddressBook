@@ -10,8 +10,9 @@
 #import "ViewController.h"
 #import <AddressBook/AddressBook.h>
 #import <AddressBookUI/AddressBookUI.h>
+#import "TSZAddPersonViewController.h"
 
-@interface ViewController ()<UITableViewDelegate , UITableViewDataSource>
+@interface ViewController ()<UITableViewDelegate , UITableViewDataSource , TSZContactDelegate>
 
 @property (nonatomic , assign) ABAddressBookRef addressBook;
 
@@ -20,6 +21,10 @@
 
 // 一个显示数据的tableView
 @property (nonatomic ,strong) UITableView  *tableView;
+
+@property (nonatomic ,assign) BOOL isModify;
+
+@property (nonatomic ,strong  ) UITableViewCell *selectedCell;
 
 @end
 
@@ -134,14 +139,17 @@
     
     cell.detailTextLabel.text = (__bridge NSString * _Nullable)(ABMultiValueCopyValueAtIndex(phoneNumberRef, 0));
     
-    if (firstName) {
-        
-        cell.textLabel.text = firstName;
-        
-    }else{
-        
-        cell.textLabel.text = lastName;
-    }
+    NSString *name = [NSString stringWithFormat:@"%@ %@" , firstName , lastName];
+    
+    cell.textLabel.text = name;
+    
+//    if (firstName) {
+//        
+//        
+//    }else{
+//        
+//        cell.textLabel.text = lastName;
+//    }
     
     
     if (ABPersonHasImageData(recordRef)) {
@@ -168,5 +176,177 @@
     return 60;
     
 }
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        ABRecordRef  recordRef = (__bridge ABRecordRef)(self.allPonser[indexPath.row]);
+        
+        // 通讯录删除
+        
+        [self removePersonWithRecord:recordRef];
+        
+        // 从数组中删除
+        
+        [self.allPonser removeObjectAtIndex:indexPath.row];
+        // 在表格中删除
+        
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+    }
+}
+
+// 选择
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    self.isModify = 1;
+    
+    self.selectedCell  = [tableView cellForRowAtIndexPath:indexPath];
+    
+//    self perfromse
+    
+}
+
+
+
+#pragma mark: TSZContactDelegate代理方法
+
+
+- (void)editPersonWithFirstName:(NSString *)firstName lastName:(NSString *)lastName withWorkNumber:(NSString *)workNumber{
+    
+    
+    if (self.isModify) {
+        
+        UITableViewCell  *cell = self.selectedCell;
+        
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+        
+        [self modifyPersonWithRecordID:(ABRecordID)cell.tag firstName:firstName lastName:lastName workNumber:workNumber];
+        
+        [self.tableView  reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+    }else{
+        
+        [self  addPersonWithFirstName:firstName lastName:lastName workNumber:workNumber];
+        
+        [self initAllPerson];
+        
+        [self.tableView reloadData];
+    }
+    
+    self.isModify = 0;
+
+}
+
+
+- (void)cancelEdit{
+    
+    self.isModify = 0;
+}
+
+
+- (void)removePersonWithRecord:(ABRecordRef) recordref{
+    
+    ABAddressBookRemoveRecord(self.addressBook, recordref, NULL);
+    
+    // 一定记住删除之后要保存
+    
+    ABAddressBookSave(self.addressBook, NULL);
+}
+
+
+// 跳过
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+    if ( [segue.identifier  isEqualToString:@"AddPerson"]) {
+        
+        UINavigationController *navgationVC = (UINavigationController *)segue.destinationViewController;
+        
+        TSZAddPersonViewController  *addVc = (TSZAddPersonViewController *)navgationVC.topViewController;
+        
+//        addVc.delegate = self;
+        
+        // 根据选择的cell 去修改
+        
+        if (self.isModify) {
+            
+            UITableViewCell *cell = self.selectedCell;
+            
+            addVc.recordID = (ABRecordID)cell.tag;
+            
+            NSArray *array = [cell.detailTextLabel.text componentsSeparatedByString:@""];
+            
+            if (array.count >0) {
+                
+                addVc.firstNameText = [array firstObject];
+            }
+            
+            if (array.count > 1) {
+                
+                addVc.lastNameText = [array lastObject];
+            }
+        }
+    }
+}
+
+
+// 修改 联系人
+
+- (void)modifyPersonWithRecordID:(ABRecordID)record firstName:(NSString *)firstName  lastName:(NSString *)lastName  workNumber:(NSString *)workNumber{
+    
+    
+    ABRecordRef  recordRef = ABAddressBookGetPersonWithRecordID(self.addressBook, record);
+    
+    
+    ABRecordSetValue(recordRef, kABPersonFirstNameProperty , (__bridge CFTypeRef)(firstName), NULL);
+    
+    ABRecordSetValue(recordRef, kABPersonLastNameProperty, (__bridge CFTypeRef)(lastName), NULL);
+    
+    
+    
+    ABMutableMultiValueRef mutilValue = ABMultiValueCreateMutable(kABStringPropertyType);
+    
+    ABMultiValueAddValueAndLabel(mutilValue, (__bridge CFTypeRef)(workNumber), kABWorkLabel, NULL);
+    
+    ABRecordSetValue(recordRef, kABPersonPhoneProperty, mutilValue, NULL);
+    
+    // 保存
+    
+    ABAddressBookSave(self.addressBook, NULL);
+    
+    // 释放
+    CFRelease(mutilValue);
+    
+}
+
+
+
+- (void)addPersonWithFirstName:(NSString *)firstName lastName:(NSString *)lastName workNumber:(NSString *)workNumber{
+    
+    ABRecordRef recordRef = ABPersonCreate();
+    
+    
+    ABRecordSetValue(recordRef, kABPersonFirstNameProperty, (__bridge CFTypeRef)(firstName), NULL);
+    
+    ABRecordSetValue(recordRef, kABPersonLastNameProperty, (__bridge CFTypeRef)(lastName), NULL);
+ 
+    ABMutableMultiValueRef  multivalueRef  =  ABMultiValueCreateMutable(kABStringPropertyType);
+    
+    ABMultiValueAddValueAndLabel(multivalueRef, (__bridge CFTypeRef)(workNumber), kABWorkLabel, NULL);
+    
+    ABRecordSetValue(recordRef , kABPersonPhoneProperty, multivalueRef, NULL);
+    
+    // 保存
+    
+    ABAddressBookSave(self.addressBook, NULL);
+    
+    CFRelease(recordRef);
+    CFRelease(multivalueRef);
+    
+}
+
+
 
 @end
