@@ -8,7 +8,10 @@
 
 #import "AppDelegate.h"
 
-@interface AppDelegate ()
+#import "ViewController.h"
+
+#import "TSZMoreViewController.h"
+@interface AppDelegate ()<UITabBarControllerDelegate>
 
 @end
 
@@ -17,6 +20,44 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    
+    // navgation 控制器
+    
+    
+    
+    
+    self.window.backgroundColor  = [UIColor grayColor];
+    
+    UITabBarController *rootVc = [[UITabBarController alloc] init];
+    rootVc.delegate = self;
+    
+//    rootVc.tabBar.items = @[@"显示数据" ,@"进行设置"];
+    
+    //  添加控制器
+    ViewController *vc = [[ViewController alloc] init];
+    
+//    vc.tabBarItem = [[UITabBarItem  alloc] initWithTabBarSystemItem:UITabBarSystemItemBookmarks tag:0];
+    vc.title = @"显示数据";
+    
+    //  添加控制器
+    TSZMoreViewController *vcMore = [[TSZMoreViewController alloc] initWithNibName:@"TSZMoreViewController" bundle:nil];
+    
+//    vcMore.tabBarItem = [[UITabBarItem  alloc] initWithTabBarSystemItem:UITabBarSystemItemBookmarks tag:1];
+    
+    vcMore.title = @"设置";
+    
+    rootVc.viewControllers = [NSArray arrayWithObjects:vc,vcMore , nil];
+    
+    rootVc.selectedIndex = 0;
+    
+    UINavigationController *naVc = [[UINavigationController alloc] initWithRootViewController:rootVc];
+    
+    self.window.rootViewController = naVc;
+    
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

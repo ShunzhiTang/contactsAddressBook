@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		249F8D501CC4DCA600AAEFD2 /* mobobox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 249F8D4F1CC4DCA600AAEFD2 /* mobobox@2x.png */; };
 		249F8D521CC4E31100AAEFD2 /* f-whatsapp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 249F8D511CC4E31100AAEFD2 /* f-whatsapp@2x.png */; };
+		249F8D561CC4F4FB00AAEFD2 /* TSZMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 249F8D541CC4F4FB00AAEFD2 /* TSZMoreViewController.m */; };
+		249F8D571CC4F4FB00AAEFD2 /* TSZMoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 249F8D551CC4F4FB00AAEFD2 /* TSZMoreViewController.xib */; };
 		24FB879B1CC0E1590054161D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 24FB879A1CC0E1590054161D /* main.m */; };
 		24FB879E1CC0E1590054161D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24FB879D1CC0E1590054161D /* AppDelegate.m */; };
 		24FB87A11CC0E1590054161D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24FB87A01CC0E1590054161D /* ViewController.m */; };
@@ -22,6 +24,9 @@
 /* Begin PBXFileReference section */
 		249F8D4F1CC4DCA600AAEFD2 /* mobobox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mobobox@2x.png"; sourceTree = "<group>"; };
 		249F8D511CC4E31100AAEFD2 /* f-whatsapp@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "f-whatsapp@2x.png"; sourceTree = "<group>"; };
+		249F8D531CC4F4FB00AAEFD2 /* TSZMoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSZMoreViewController.h; sourceTree = "<group>"; };
+		249F8D541CC4F4FB00AAEFD2 /* TSZMoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSZMoreViewController.m; sourceTree = "<group>"; };
+		249F8D551CC4F4FB00AAEFD2 /* TSZMoreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSZMoreViewController.xib; sourceTree = "<group>"; };
 		24FB87961CC0E1590054161D /* contactsAddressBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = contactsAddressBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24FB879A1CC0E1590054161D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		24FB879C1CC0E1590054161D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -67,10 +72,13 @@
 		24FB87981CC0E1590054161D /* contactsAddressBook */ = {
 			isa = PBXGroup;
 			children = (
+				249F8D531CC4F4FB00AAEFD2 /* TSZMoreViewController.h */,
+				249F8D541CC4F4FB00AAEFD2 /* TSZMoreViewController.m */,
+				249F8D551CC4F4FB00AAEFD2 /* TSZMoreViewController.xib */,
 				24FB879C1CC0E1590054161D /* AppDelegate.h */,
+				24FB879D1CC0E1590054161D /* AppDelegate.m */,
 				24FB87B21CC0FC370054161D /* TSZAddPersonViewController.h */,
 				24FB87B31CC0FC370054161D /* TSZAddPersonViewController.m */,
-				24FB879D1CC0E1590054161D /* AppDelegate.m */,
 				24FB879F1CC0E1590054161D /* ViewController.h */,
 				24FB87A01CC0E1590054161D /* ViewController.m */,
 				24FB87A21CC0E1590054161D /* Main.storyboard */,
@@ -155,6 +163,7 @@
 				24FB87A91CC0E1590054161D /* LaunchScreen.storyboard in Resources */,
 				249F8D501CC4DCA600AAEFD2 /* mobobox@2x.png in Resources */,
 				249F8D521CC4E31100AAEFD2 /* f-whatsapp@2x.png in Resources */,
+				249F8D571CC4F4FB00AAEFD2 /* TSZMoreViewController.xib in Resources */,
 				24FB87A61CC0E1590054161D /* Assets.xcassets in Resources */,
 				24FB87A41CC0E1590054161D /* Main.storyboard in Resources */,
 			);
@@ -168,6 +177,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24FB87A11CC0E1590054161D /* ViewController.m in Sources */,
+				249F8D561CC4F4FB00AAEFD2 /* TSZMoreViewController.m in Sources */,
 				24FB879E1CC0E1590054161D /* AppDelegate.m in Sources */,
 				24FB879B1CC0E1590054161D /* main.m in Sources */,
 				24FB87B41CC0FC370054161D /* TSZAddPersonViewController.m in Sources */,
