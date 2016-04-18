@@ -37,11 +37,29 @@
     
     [self requestAddressBook];
     
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height) style:UITableViewStylePlain];
+    // 创建一个批量插入的按钮
+    
+    CGFloat with = self.view.bounds.size.width;
+    
+    UIButton *moreInsertContacts = [[UIButton alloc] initWithFrame:CGRectMake(20, 74, with-40, 44)];
+    
+    [moreInsertContacts addTarget:self action:@selector(moreInsertContactsClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    [moreInsertContacts setTitle:@"批量插入联系人" forState:UIControlStateNormal];
+    
+    [moreInsertContacts setTintColor:[UIColor whiteColor]];
+    
+    // 设置背景颜色
+    [moreInsertContacts setBackgroundColor: [UIColor grayColor]];
+    
+    
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 128, self.view.bounds.size.width, self.view.bounds.size.height) style:UITableViewStylePlain];
     
     self.tableView.delegate = self;
     
     self.tableView.dataSource = self;
+    
+    [self.view addSubview:moreInsertContacts];
     
     [self.view addSubview:self.tableView];
     
@@ -494,5 +512,85 @@
     
     [self.tableView reloadData];
 }
+
+#pragma mark: 批量插入联系人
+
+- (void)moreInsertContactsClick{
+    
+    // 插入 3个 联系人  ， 每个联系人下 3个电话
+    
+    // 确定数据   name , phone1  , phone2 ,phone3 ...
+    
+    NSArray *numArr1 = @[@"1331000000" , @"1331000001" ,@"1331000002"];
+    
+    NSDictionary *dict1 = @{@"name" : @"唐一" , @"phoneNumbers" : numArr1};
+    
+    NSArray *numArr2 = @[@"1361000000" , @"1361000001" ,@"1361000002"];
+    
+    NSDictionary *dict2 = @{@"name" : @"唐二" , @"phoneNumbers" : numArr2};
+    
+    NSArray *numArr3 = @[@"1371000000" , @"1371000001" ,@"1371000002"];
+    
+    NSDictionary *dict3 = @{@"name" : @"唐三" , @"phoneNumbers" : numArr3};
+    
+    NSArray *personArr1 = [NSArray arrayWithObjects:dict1 , dict2 , dict3, nil];
+    
+    for (int i  = 0;  i < [personArr1 count]; i++) {
+        
+        [self addMoreContactsWith:personArr1[i]];
+    }
+    
+    
+    //重新请求值
+    
+    [self initAllPerson];
+    
+    // 刷新界面
+    
+    [self.tableView reloadData];
+}
+
+- (void)addMoreContactsWith:(NSDictionary *)dict{
+    
+    // 创建 一个联系人引用
+    
+    ABRecordRef person = ABPersonCreate();
+    
+    NSString *firstName = dict[@"name"];
+    
+    // 电话号码组
+    
+    NSArray *phoneArr = dict[@"phoneNumbers"];
+    
+    // 设置姓名属性
+    
+    ABRecordSetValue(person, kABPersonFirstNameProperty, (__bridge CFTypeRef)(firstName), NULL);
+    
+    // 字典引用
+    ABMultiValueRef multiValue = ABMultiValueCreateMutable(kABMultiStringPropertyType);
+    
+    // 添加电话号码内容
+    for (int  i = 0 ; i < phoneArr.count; i++) {
+        
+        ABMultiValueIdentifier obj = ABMultiValueAddValueAndLabel( multiValue, (__bridge CFTypeRef)([phoneArr objectAtIndex:i]), kABOtherLabel, &obj);
+    }
+    
+    // 设置phone 属性
+    
+    ABRecordSetValue(person, kABPersonPhoneProperty, multiValue, NULL);
+    
+    // 保存
+    
+    ABAddressBookAddRecord(self.addressBook, person, NULL);
+    
+    // 保存 通讯录
+    
+    ABAddressBookSave(self.addressBook , NULL);
+    
+    //release
+    
+    CFRelease(person);
+}
+
 
 @end
