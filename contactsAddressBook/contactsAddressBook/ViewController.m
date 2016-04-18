@@ -45,6 +45,8 @@
     
     [self.view addSubview:self.tableView];
     
+    [self.tableView setEditing:YES];
+    
 }
 
 #pragma mark: 请求数据库初始化
@@ -216,6 +218,18 @@
     
 //    self perfromse
     
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    
+    if (cell.accessoryType == UITableViewCellAccessoryNone) {
+        
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        
+    }else {
+        
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 
@@ -393,11 +407,44 @@
     
 }
 
+#pragma mark: 移动tableView的cell
+
 /**
-     移动tableView的cell
+    
+    先把默认的删除的图标去掉
+ 
+ */
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    return UITableViewCellEditingStyleInsert;
+}
+
+/**
+    2、返回当前的cell 是否可以移动
+ */
+
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    return  YES;
+}
+
+/**
+    3、执行移动的操作
  */
 
 
-
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath{
+    
+    NSUInteger  fromRow = [sourceIndexPath  row];
+    
+    NSUInteger  toRow = [destinationIndexPath   row];
+    
+    id object = [self.allPonser  objectAtIndex:fromRow];
+    
+    [self.allPonser removeObjectAtIndex:fromRow];
+    
+    [self.allPonser  insertObject:object atIndex:toRow];
+}
 
 @end
