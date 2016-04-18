@@ -523,15 +523,15 @@
     
     NSArray *numArr1 = @[@"1331000000" , @"1331000001" ,@"1331000002"];
     
-    NSDictionary *dict1 = @{@"name" : @"唐一" , @"phoneNumbers" : numArr1};
+    NSDictionary *dict1 = @{@"name" : @"唐一1" , @"phoneNumbers" : numArr1};
     
     NSArray *numArr2 = @[@"1361000000" , @"1361000001" ,@"1361000002"];
     
-    NSDictionary *dict2 = @{@"name" : @"唐二" , @"phoneNumbers" : numArr2};
+    NSDictionary *dict2 = @{@"name" : @"唐二2" , @"phoneNumbers" : numArr2};
     
     NSArray *numArr3 = @[@"1371000000" , @"1371000001" ,@"1371000002"];
     
-    NSDictionary *dict3 = @{@"name" : @"唐三" , @"phoneNumbers" : numArr3};
+    NSDictionary *dict3 = @{@"name" : @"唐三3" , @"phoneNumbers" : numArr3};
     
     NSArray *personArr1 = [NSArray arrayWithObjects:dict1 , dict2 , dict3, nil];
     
@@ -562,17 +562,22 @@
     
     NSArray *phoneArr = dict[@"phoneNumbers"];
     
+    NSArray *labelsArr = @[@"phone" , @"诈骗" , @"销售"];
+    
+    
     // 设置姓名属性
     
     ABRecordSetValue(person, kABPersonFirstNameProperty, (__bridge CFTypeRef)(firstName), NULL);
     
     // 字典引用
+    
     ABMultiValueRef multiValue = ABMultiValueCreateMutable(kABMultiStringPropertyType);
     
     // 添加电话号码内容
+    
     for (int  i = 0 ; i < phoneArr.count; i++) {
         
-        ABMultiValueIdentifier obj = ABMultiValueAddValueAndLabel( multiValue, (__bridge CFTypeRef)([phoneArr objectAtIndex:i]), kABOtherLabel, &obj);
+        ABMultiValueIdentifier obj = ABMultiValueAddValueAndLabel( multiValue, (__bridge CFTypeRef)([phoneArr objectAtIndex:i]), (__bridge CFStringRef)labelsArr[i], &obj);
     }
     
     // 设置phone 属性
