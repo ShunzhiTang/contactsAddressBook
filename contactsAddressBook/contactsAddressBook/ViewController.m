@@ -521,15 +521,15 @@
     
     // 确定数据   name , phone1  , phone2 ,phone3 ...
     
-    NSArray *numArr1 = @[@"1331000000" , @"1331000001" ,@"1331000002"];
+    NSArray *numArr1 = @[@"Home1" , @"1331000001" ,@"1331000002"];
     
     NSDictionary *dict1 = @{@"name" : @"" , @"phoneNumbers" : numArr1};
     
-    NSArray *numArr2 = @[@"1361000000" , @"1361000001" ,@"1361000002"];
+    NSArray *numArr2 = @[@"Home2" , @"1361000001" ,@"1361000002"];
     
     NSDictionary *dict2 = @{@"name" : @"" , @"phoneNumbers" : numArr2};
     
-    NSArray *numArr3 = @[@"1371000000" , @"1371000001" ,@"1371000002"];
+    NSArray *numArr3 = @[@"Home3" , @"1371000001" ,@"1371000002"];
     
     NSDictionary *dict3 = @{@"name" : @"" , @"phoneNumbers" : numArr3};
     
