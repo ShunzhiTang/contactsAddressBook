@@ -12,7 +12,7 @@
 #import <AddressBookUI/AddressBookUI.h>
 #import "TSZAddPersonViewController.h"
 
-@interface ViewController ()<UITableViewDelegate , UITableViewDataSource , TSZContactDelegate>
+@interface ViewController ()<UITableViewDelegate , UITableViewDataSource , TSZContactDelegate , ABNewPersonViewControllerDelegate>
 
 @property (nonatomic , assign) ABAddressBookRef addressBook;
 
@@ -207,11 +207,22 @@
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
     }else if(editingStyle == UITableViewCellEditingStyleInsert){
         
-        NSArray *insertArray =  [NSArray arrayWithObjects:indexPath, nil];
+        // 应该插入的是联系人
         
-        [self.allPonser insertObject:@"唐枫" atIndex:indexPath.row];
+//        NSArray *insertArray =  [NSArray arrayWithObjects:indexPath, nil];
+//        
+//        [self.allPonser insertObject:@"唐枫" atIndex:indexPath.row];
+//        
+//        [tableView insertRowsAtIndexPaths:insertArray withRowAnimation:UITableViewRowAnimationMiddle];
         
-        [tableView insertRowsAtIndexPaths:insertArray withRowAnimation:UITableViewRowAnimationMiddle];
+        ABNewPersonViewController *newPerson = [[ABNewPersonViewController alloc] init];
+        
+        newPerson.newPersonViewDelegate = self;
+        
+        UINavigationController *navc = [[UINavigationController alloc] initWithRootViewController:newPerson];
+        
+        [self presentViewController:navc animated:YES completion:nil];
+        
     }
 }
 
@@ -424,7 +435,9 @@
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    return UITableViewCellEditingStyleDelete;
+    //return UITableViewCellEditingStyleDelete;  // 删除
+    
+    return UITableViewCellEditingStyleInsert;
 }
 
 /**
@@ -452,6 +465,29 @@
     [self.allPonser removeObjectAtIndex:fromRow];
     
     [self.allPonser  insertObject:object atIndex:toRow];
+}
+
+#pragma mark: ABNewPersonViewControllerDelegate方法
+
+
+- (void)newPersonViewController:(ABNewPersonViewController *)newPersonView didCompleteWithNewPerson:(ABRecordRef)person{
+    
+    
+    if (person) {
+        
+        NSLog(@"点击了保存  ， %@", ABRecordCopyCompositeName(person));
+        
+    }else{
+        
+        NSLog(@"点击了取消");
+    }
+    // 关闭
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    // 刷新界面
+    
+    [self.tableView reloadData];
 }
 
 @end
