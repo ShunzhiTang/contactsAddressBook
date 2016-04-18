@@ -139,6 +139,16 @@
     
     cell.detailTextLabel.text = (__bridge NSString * _Nullable)(ABMultiValueCopyValueAtIndex(phoneNumberRef, 0));
     
+    if(firstName == nil){
+        
+        firstName = @"";
+    }
+    
+    if(lastName == nil){
+        
+        lastName = @"";
+    }
+    
     NSString *name = [NSString stringWithFormat:@"%@ %@" , firstName , lastName];
     
     cell.textLabel.text = name;
@@ -255,6 +265,42 @@
 }
 
 
+
+/** 
+    
+    根据 姓名删除 记录
+ 
+ */
+
+- (void)removePersonWithName:(NSString *)personName{
+    
+    
+    CFStringRef  personNameRef =  (__bridge CFStringRef)(personName);
+    
+    
+    CFArrayRef  recordsRef = ABAddressBookCopyPeopleWithName(self.addressBook, personNameRef);
+    
+    CFIndex  count  = CFArrayGetCount(recordsRef); // 取得记录数
+    
+    for (CFIndex  i = 0 ; i != count;  i++) {
+        
+        ABRecordRef  recordRef  = CFArrayGetValueAtIndex(recordsRef, i);
+        
+        // 删除
+        ABAddressBookRemoveRecord(self.addressBook, recordRef, NULL);
+        
+    }
+    
+    // 一定要保存
+    
+    ABAddressBookSave(self.addressBook, NULL);
+    
+    CFRelease(recordsRef);
+
+}
+
+
+
 // 跳过
 
 
@@ -346,6 +392,11 @@
     CFRelease(multivalueRef);
     
 }
+
+/**
+     移动tableView的cell
+ */
+
 
 
 
