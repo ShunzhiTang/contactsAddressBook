@@ -485,6 +485,11 @@
     
     [self dismissViewControllerAnimated:YES completion:nil];
     
+    
+    //重新请求值
+    
+    [self initAllPerson];
+    
     // 刷新界面
     
     [self.tableView reloadData];
