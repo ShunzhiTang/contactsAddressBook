@@ -523,15 +523,15 @@
     
     NSArray *numArr1 = @[@"1331000000" , @"1331000001" ,@"1331000002"];
     
-    NSDictionary *dict1 = @{@"name" : @"唐一1" , @"phoneNumbers" : numArr1};
+    NSDictionary *dict1 = @{@"name" : @"" , @"phoneNumbers" : numArr1};
     
     NSArray *numArr2 = @[@"1361000000" , @"1361000001" ,@"1361000002"];
     
-    NSDictionary *dict2 = @{@"name" : @"唐二2" , @"phoneNumbers" : numArr2};
+    NSDictionary *dict2 = @{@"name" : @"" , @"phoneNumbers" : numArr2};
     
     NSArray *numArr3 = @[@"1371000000" , @"1371000001" ,@"1371000002"];
     
-    NSDictionary *dict3 = @{@"name" : @"唐三3" , @"phoneNumbers" : numArr3};
+    NSDictionary *dict3 = @{@"name" : @"" , @"phoneNumbers" : numArr3};
     
     NSArray *personArr1 = [NSArray arrayWithObjects:dict1 , dict2 , dict3, nil];
     
@@ -562,7 +562,7 @@
     
     NSArray *phoneArr = dict[@"phoneNumbers"];
     
-    NSArray *labelsArr = @[@"phone" , @"诈骗" , @"销售"];
+    NSArray *labelsArr = @[@"标记" , @"诈骗" , @"销售"];
     
     
     // 设置姓名属性
@@ -583,6 +583,21 @@
     // 设置phone 属性
     
     ABRecordSetValue(person, kABPersonPhoneProperty, multiValue, NULL);
+    
+    // 添加图片
+    
+//    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"mobobox.png" ofType:nil];
+//    
+//     NSLog(@"imagePath = %@" , imagePath);
+//    
+//    NSData *imageData = [NSData dataWithContentsOfFile:imagePath];
+//    
+//    NSLog(@"%@" , imageData);
+    
+    UIImage *image = [UIImage imageNamed:@"mobobox"];
+    
+    NSData *data =  UIImagePNGRepresentation(image);
+    ABPersonSetImageData(person, (__bridge CFDataRef)data, NULL);
     
     // 保存
     
