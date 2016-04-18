@@ -45,7 +45,7 @@
     
     [self.view addSubview:self.tableView];
     
-    [self.tableView setEditing:YES];
+    [self.tableView setEditing:YES animated:YES];
     
 }
 
@@ -204,7 +204,14 @@
         [self.allPonser removeObjectAtIndex:indexPath.row];
         // 在表格中删除
         
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
+    }else if(editingStyle == UITableViewCellEditingStyleInsert){
+        
+        NSArray *insertArray =  [NSArray arrayWithObjects:indexPath, nil];
+        
+        [self.allPonser insertObject:@"唐枫" atIndex:indexPath.row];
+        
+        [tableView insertRowsAtIndexPaths:insertArray withRowAnimation:UITableViewRowAnimationMiddle];
     }
 }
 
@@ -226,7 +233,7 @@
         
     }else {
         
-        cell.accessoryType = UITableViewCellAccessoryNone;
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -417,7 +424,7 @@
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    return UITableViewCellEditingStyleInsert;
+    return UITableViewCellEditingStyleDelete;
 }
 
 /**
