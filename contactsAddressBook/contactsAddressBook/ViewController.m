@@ -594,7 +594,7 @@
 //    
 //    NSLog(@"%@" , imageData);
     
-    UIImage *image = [UIImage imageNamed:@"mobobox"];
+    UIImage *image = [UIImage imageNamed:@"f-whatsapp"];
     
     NSData *data =  UIImagePNGRepresentation(image);
     ABPersonSetImageData(person, (__bridge CFDataRef)data, NULL);

@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		249F8D501CC4DCA600AAEFD2 /* mobobox.png in Resources */ = {isa = PBXBuildFile; fileRef = 249F8D4F1CC4DCA600AAEFD2 /* mobobox.png */; };
+		249F8D501CC4DCA600AAEFD2 /* mobobox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 249F8D4F1CC4DCA600AAEFD2 /* mobobox@2x.png */; };
+		249F8D521CC4E31100AAEFD2 /* f-whatsapp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 249F8D511CC4E31100AAEFD2 /* f-whatsapp@2x.png */; };
 		24FB879B1CC0E1590054161D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 24FB879A1CC0E1590054161D /* main.m */; };
 		24FB879E1CC0E1590054161D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24FB879D1CC0E1590054161D /* AppDelegate.m */; };
 		24FB87A11CC0E1590054161D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24FB87A01CC0E1590054161D /* ViewController.m */; };
@@ -19,7 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		249F8D4F1CC4DCA600AAEFD2 /* mobobox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mobobox.png; sourceTree = "<group>"; };
+		249F8D4F1CC4DCA600AAEFD2 /* mobobox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mobobox@2x.png"; sourceTree = "<group>"; };
+		249F8D511CC4E31100AAEFD2 /* f-whatsapp@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "f-whatsapp@2x.png"; sourceTree = "<group>"; };
 		24FB87961CC0E1590054161D /* contactsAddressBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = contactsAddressBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24FB879A1CC0E1590054161D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		24FB879C1CC0E1590054161D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -83,7 +85,8 @@
 		24FB87991CC0E1590054161D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				249F8D4F1CC4DCA600AAEFD2 /* mobobox.png */,
+				249F8D511CC4E31100AAEFD2 /* f-whatsapp@2x.png */,
+				249F8D4F1CC4DCA600AAEFD2 /* mobobox@2x.png */,
 				24FB87B01CC0F3800054161D /* noloading@2x.png */,
 				24FB879A1CC0E1590054161D /* main.m */,
 			);
@@ -150,7 +153,8 @@
 			files = (
 				24FB87B11CC0F3800054161D /* noloading@2x.png in Resources */,
 				24FB87A91CC0E1590054161D /* LaunchScreen.storyboard in Resources */,
-				249F8D501CC4DCA600AAEFD2 /* mobobox.png in Resources */,
+				249F8D501CC4DCA600AAEFD2 /* mobobox@2x.png in Resources */,
+				249F8D521CC4E31100AAEFD2 /* f-whatsapp@2x.png in Resources */,
 				24FB87A61CC0E1590054161D /* Assets.xcassets in Resources */,
 				24FB87A41CC0E1590054161D /* Main.storyboard in Resources */,
 			);
