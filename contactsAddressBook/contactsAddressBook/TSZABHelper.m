@@ -72,13 +72,18 @@
                 
                 NSString *phone  = (NSString *)CFArrayGetValueAtIndex(phoneNumbers, j);
                 
-                // 
+                NSString *correctPhone = [self correctFormatPhoneNuber:phone];
+                
+                //
                 
                 NSLog(@"phone11 = %@" , phone);
                 
+                NSLog(@"correctPhone = %@" , correctPhone);
                 // 判断
                 
-                if ([phone isEqualToString:phoneNum]) {
+                
+                
+                if ([correctPhone isEqualToString:phoneNum]) {
                     
                     CFStringRef  flagArr = ABMultiValueCopyLabelAtIndex(items , j);
                     
@@ -163,6 +168,27 @@
     return  YES;
 }
 
+
+/**
+    去掉括号 或者空格 ，  -
+ */
+
+- (NSString *)correctFormatPhoneNuber:(NSString *)phoneNum{
+    
+    // 去掉两端的 空格
+    
+    NSString *temp = [phoneNum stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    
+    temp = [temp stringByReplacingOccurrencesOfString:@" " withString:@""];
+    
+    // 直接使用替换
+    
+    temp = [temp stringByReplacingOccurrencesOfString:@"(" withString:@""];
+    temp = [temp stringByReplacingOccurrencesOfString:@")" withString:@""];
+    temp = [temp stringByReplacingOccurrencesOfString:@"-" withString:@""];
+    
+    return temp;
+}
 
 
 @end
