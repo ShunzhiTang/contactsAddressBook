@@ -49,6 +49,8 @@
     
         NSLog(@" self.recordsArr = %@ " , self.allPerson);
         
+       
+        @autoreleasepool {
         for (int  i = 0;  i <  self.allPerson.count ;  i++) {
         
         ABRecordRef record =  (__bridge ABRecordRef)(self.allPerson[i]);
@@ -67,7 +69,7 @@
         if (phoneNumbers) {
             
             // 遍历
-        
+         
             for (int  j  = 0;  j < CFArrayGetCount(phoneNumbers);  j++) {
                 
                 NSString *phone  = (NSString *)CFArrayGetValueAtIndex(phoneNumbers, j);
@@ -81,7 +83,7 @@
                 NSLog(@"correctPhone = %@" , correctPhone);
                 // 判断
                 
-                
+               
                 
                 if ([correctPhone isEqualToString:phoneNum]) {
                     
@@ -95,8 +97,8 @@
         }
         
     }
-    
-//    CFRelease(self.addressBook);
+    }
+    CFRelease(self.addressBook);
 //    return  YES;
         
 }
