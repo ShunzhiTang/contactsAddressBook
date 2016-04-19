@@ -84,8 +84,8 @@
 				24FB87A21CC0E1590054161D /* Main.storyboard */,
 				24FB87A51CC0E1590054161D /* Assets.xcassets */,
 				24FB87A71CC0E1590054161D /* LaunchScreen.storyboard */,
-				24FB87AA1CC0E1590054161D /* Info.plist */,
 				24FB87991CC0E1590054161D /* Supporting Files */,
+				24FB87AA1CC0E1590054161D /* Info.plist */,
 			);
 			path = contactsAddressBook;
 			sourceTree = "<group>";

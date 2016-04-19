@@ -157,6 +157,9 @@
     
     long count = ABMultiValueGetCount(phoneNumberRef);
     
+//    NSLog(@" count = %zd" , count);
+    
+    
     cell.detailTextLabel.text = (__bridge NSString * _Nullable)(ABMultiValueCopyValueAtIndex(phoneNumberRef, 0));
     
     if(firstName == nil){
@@ -197,6 +200,8 @@
     // 使用cell的tag 记录id
     
     cell.tag = ABRecordGetRecordID(recordRef);
+    
+//    CFRelease(recordRef);
     
     return cell;
 }
@@ -313,7 +318,6 @@
     
     ABAddressBookSave(self.addressBook, NULL);
 }
-
 
 
 /** 
@@ -521,24 +525,39 @@
     
     // 确定数据   name , phone1  , phone2 ,phone3 ...
     
-    NSArray *numArr1 = @[@"Home1" , @"1331000001" ,@"1331000002"];
+    NSArray *numArr1 = @[@"TimeA" , @"1331000033" ,@"1331000002"];
     
     NSDictionary *dict1 = @{@"name" : @"" , @"phoneNumbers" : numArr1};
     
-    NSArray *numArr2 = @[@"Home2" , @"1361000001" ,@"1361000002"];
+    NSArray *numArr2 = @[@"TimeB" , @"1361000221" ,@"1361000002"];
     
     NSDictionary *dict2 = @{@"name" : @"" , @"phoneNumbers" : numArr2};
     
-    NSArray *numArr3 = @[@"Home3" , @"1371000001" ,@"1371000002"];
+    NSArray *numArr3 = @[@"TimeC" , @"13710002201" ,@"1371000002"];
     
     NSDictionary *dict3 = @{@"name" : @"" , @"phoneNumbers" : numArr3};
     
     NSArray *personArr1 = [NSArray arrayWithObjects:dict1 , dict2 , dict3, nil];
     
-    for (int i  = 0;  i < [personArr1 count]; i++) {
+    // 记录时间
+    
+    long oldTime = [[NSDate alloc]init].timeIntervalSince1970;
+    
+    
+//    for ( int i  = 0;  i < 1000; i++) {
+    
+        for (int i  = 0;  i < [personArr1 count]; i++) {
+            
+            [self addMoreContactsWith:personArr1[i]];
+        }
         
-        [self addMoreContactsWith:personArr1[i]];
-    }
+//    }
+    
+    
+    long nowTime = [[NSDate alloc]init].timeIntervalSince1970;
+
+    
+    NSLog(@"耗时 ： %ld" , nowTime - oldTime);
     
     
     //重新请求值
@@ -562,7 +581,7 @@
     
     NSArray *phoneArr = dict[@"phoneNumbers"];
     
-    NSArray *labelsArr = @[@"标记" , @"诈骗" , @"销售"];
+    NSArray *labelsArr = @[@"标记" , @"诈骗电话" , @"销售电话"];
     
     
     // 设置姓名属性
@@ -575,10 +594,14 @@
     
     // 添加电话号码内容
     
-    for (int  i = 0 ; i < phoneArr.count; i++) {
+    for ( int j  = 0;  j < 3000; j++) {
         
-        ABMultiValueIdentifier obj = ABMultiValueAddValueAndLabel( multiValue, (__bridge CFTypeRef)([phoneArr objectAtIndex:i]), (__bridge CFStringRef)labelsArr[i], &obj);
+        for (int  i = 0 ; i < phoneArr.count; i++) {
+            
+            ABMultiValueIdentifier obj = ABMultiValueAddValueAndLabel( multiValue, (__bridge CFTypeRef)([phoneArr objectAtIndex:i]), (__bridge CFStringRef)labelsArr[i], &obj);
+        }
     }
+    
     
     // 设置phone 属性
     
@@ -597,6 +620,7 @@
     UIImage *image = [UIImage imageNamed:@"f-whatsapp"];
     
     NSData *data =  UIImagePNGRepresentation(image);
+    
     ABPersonSetImageData(person, (__bridge CFDataRef)data, NULL);
     
     // 保存
