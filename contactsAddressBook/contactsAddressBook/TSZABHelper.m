@@ -184,8 +184,14 @@
     // 直接使用替换
     
     temp = [temp stringByReplacingOccurrencesOfString:@"(" withString:@""];
+    
     temp = [temp stringByReplacingOccurrencesOfString:@")" withString:@""];
+    
     temp = [temp stringByReplacingOccurrencesOfString:@"-" withString:@""];
+    
+    //这个是 测试出来的大 空格
+    
+    temp = [temp stringByReplacingOccurrencesOfString:@" " withString:@""];
     
     return temp;
 }
