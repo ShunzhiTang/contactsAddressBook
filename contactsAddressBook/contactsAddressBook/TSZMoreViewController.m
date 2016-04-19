@@ -7,7 +7,11 @@
 //
 
 #import "TSZMoreViewController.h"
+#import <AddressBook/AddressBook.h>
 
+#import <AddressBookUI/AddressBookUI.h>
+
+#import "TSZABHelper.h"
 @interface TSZMoreViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumberTextFiled;
@@ -23,6 +27,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,7 +44,25 @@
     
     self.resultLabel.text = @"查询中。。。";
     
+    
+    if ( [self existPhoneNumber:self.phoneNumberTextFiled.text]) {
+        
+        self.resultLabel.text  = @"查询成功";
+    }else{
+        
+         self.resultLabel.text  = @"没有这个联系人";
+    }
+    
 }
+
+#pragma mark: 判断这个号码是否存在
+
+- (BOOL)existPhoneNumber:(NSString *)phoneNum{
+    
+    
+    return [[TSZABHelper  shareABHelper] existPhone:phoneNum];
+}
+
 
 
 @end

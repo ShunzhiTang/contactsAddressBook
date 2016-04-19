@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2441D2591CC61CDB00BBC6D4 /* TSZABHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2441D2581CC61CDB00BBC6D4 /* TSZABHelper.m */; };
 		249F8D501CC4DCA600AAEFD2 /* mobobox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 249F8D4F1CC4DCA600AAEFD2 /* mobobox@2x.png */; };
 		249F8D521CC4E31100AAEFD2 /* f-whatsapp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 249F8D511CC4E31100AAEFD2 /* f-whatsapp@2x.png */; };
 		249F8D561CC4F4FB00AAEFD2 /* TSZMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 249F8D541CC4F4FB00AAEFD2 /* TSZMoreViewController.m */; };
@@ -22,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2441D2571CC61CDB00BBC6D4 /* TSZABHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSZABHelper.h; sourceTree = "<group>"; };
+		2441D2581CC61CDB00BBC6D4 /* TSZABHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSZABHelper.m; sourceTree = "<group>"; };
 		249F8D4F1CC4DCA600AAEFD2 /* mobobox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mobobox@2x.png"; sourceTree = "<group>"; };
 		249F8D511CC4E31100AAEFD2 /* f-whatsapp@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "f-whatsapp@2x.png"; sourceTree = "<group>"; };
 		249F8D531CC4F4FB00AAEFD2 /* TSZMoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSZMoreViewController.h; sourceTree = "<group>"; };
@@ -72,6 +75,8 @@
 		24FB87981CC0E1590054161D /* contactsAddressBook */ = {
 			isa = PBXGroup;
 			children = (
+				2441D2571CC61CDB00BBC6D4 /* TSZABHelper.h */,
+				2441D2581CC61CDB00BBC6D4 /* TSZABHelper.m */,
 				249F8D531CC4F4FB00AAEFD2 /* TSZMoreViewController.h */,
 				249F8D541CC4F4FB00AAEFD2 /* TSZMoreViewController.m */,
 				249F8D551CC4F4FB00AAEFD2 /* TSZMoreViewController.xib */,
@@ -178,6 +183,7 @@
 			files = (
 				24FB87A11CC0E1590054161D /* ViewController.m in Sources */,
 				249F8D561CC4F4FB00AAEFD2 /* TSZMoreViewController.m in Sources */,
+				2441D2591CC61CDB00BBC6D4 /* TSZABHelper.m in Sources */,
 				24FB879E1CC0E1590054161D /* AppDelegate.m in Sources */,
 				24FB879B1CC0E1590054161D /* main.m in Sources */,
 				24FB87B41CC0FC370054161D /* TSZAddPersonViewController.m in Sources */,
