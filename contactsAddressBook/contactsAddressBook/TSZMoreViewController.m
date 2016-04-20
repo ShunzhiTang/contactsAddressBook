@@ -52,8 +52,8 @@
         
          self.resultLabel.text  = @"没有这个联系人";
     }
-    
 }
+
 #pragma mark: 判断这个号码是否存在
 
 - (BOOL)existPhoneNumber:(NSString *)phoneNum{

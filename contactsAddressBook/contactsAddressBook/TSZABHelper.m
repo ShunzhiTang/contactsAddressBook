@@ -34,6 +34,8 @@
     return instance;
 }
 
+
+
 /**
  查询当前号码
  */
@@ -48,9 +50,10 @@
     // 遍历 全部联系人
     
         NSLog(@" self.recordsArr = %@ " , self.allPerson);
-        
+    
        
         @autoreleasepool {
+            
         for (int  i = 0;  i <  self.allPerson.count ;  i++) {
         
         ABRecordRef record =  (__bridge ABRecordRef)(self.allPerson[i]);
@@ -58,10 +61,6 @@
         ABMultiValueRef   items  =  ABRecordCopyValue(record, kABPersonPhoneProperty);
         
         CFArrayRef phoneNumbers = ABMultiValueCopyArrayOfAllValues(items);
-            
-         
-        
-//        NSLog(@" phone = %@" , phoneNumbers);
             
         
         //有联系人
@@ -76,14 +75,12 @@
                 
                 NSString *correctPhone = [self correctFormatPhoneNuber:phone];
                 
-                //
                 
                 NSLog(@"phone11 = %@" , phone);
                 
                 NSLog(@"correctPhone = %@" , correctPhone);
-                // 判断
                 
-               
+                // 判断
                 
                 if ([correctPhone isEqualToString:phoneNum]) {
                     
