@@ -11,6 +11,8 @@
 #import "ViewController.h"
 
 #import "TSZMoreViewController.h"
+#import "WCCallInspector.h"
+#import <AudioToolbox/AudioToolbox.h>
 @interface AppDelegate ()<UITabBarControllerDelegate>
 
 @end
@@ -57,6 +59,8 @@
     self.window.rootViewController = naVc;
     
     [self.window makeKeyAndVisible];
+    
+    [[WCCallInspector sharedInspector] startInspect];
     
     return YES;
 }

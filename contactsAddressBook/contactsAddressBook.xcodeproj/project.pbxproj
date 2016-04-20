@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		243262031CC7812400F96145 /* WCCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 243261FE1CC7812400F96145 /* WCCall.m */; };
+		243262041CC7812400F96145 /* WCCallCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 243262001CC7812400F96145 /* WCCallCenter.m */; };
+		243262051CC7812400F96145 /* WCCallInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = 243262021CC7812400F96145 /* WCCallInspector.m */; };
+		243262081CC785F600F96145 /* WCUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 243262071CC785F600F96145 /* WCUtil.m */; };
 		2441D2591CC61CDB00BBC6D4 /* TSZABHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2441D2581CC61CDB00BBC6D4 /* TSZABHelper.m */; };
 		249F8D501CC4DCA600AAEFD2 /* mobobox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 249F8D4F1CC4DCA600AAEFD2 /* mobobox@2x.png */; };
 		249F8D521CC4E31100AAEFD2 /* f-whatsapp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 249F8D511CC4E31100AAEFD2 /* f-whatsapp@2x.png */; };
@@ -23,6 +27,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		243261FD1CC7812400F96145 /* WCCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCCall.h; sourceTree = "<group>"; };
+		243261FE1CC7812400F96145 /* WCCall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCCall.m; sourceTree = "<group>"; };
+		243261FF1CC7812400F96145 /* WCCallCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCCallCenter.h; sourceTree = "<group>"; };
+		243262001CC7812400F96145 /* WCCallCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCCallCenter.m; sourceTree = "<group>"; };
+		243262011CC7812400F96145 /* WCCallInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCCallInspector.h; sourceTree = "<group>"; };
+		243262021CC7812400F96145 /* WCCallInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCCallInspector.m; sourceTree = "<group>"; };
+		243262061CC785F600F96145 /* WCUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCUtil.h; sourceTree = "<group>"; };
+		243262071CC785F600F96145 /* WCUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCUtil.m; sourceTree = "<group>"; };
 		2441D2571CC61CDB00BBC6D4 /* TSZABHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSZABHelper.h; sourceTree = "<group>"; };
 		2441D2581CC61CDB00BBC6D4 /* TSZABHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSZABHelper.m; sourceTree = "<group>"; };
 		249F8D4F1CC4DCA600AAEFD2 /* mobobox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mobobox@2x.png"; sourceTree = "<group>"; };
@@ -56,6 +68,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		243261FC1CC7811900F96145 /* WCCall */ = {
+			isa = PBXGroup;
+			children = (
+				243262061CC785F600F96145 /* WCUtil.h */,
+				243262071CC785F600F96145 /* WCUtil.m */,
+				243261FD1CC7812400F96145 /* WCCall.h */,
+				243261FE1CC7812400F96145 /* WCCall.m */,
+				243261FF1CC7812400F96145 /* WCCallCenter.h */,
+				243262001CC7812400F96145 /* WCCallCenter.m */,
+				243262011CC7812400F96145 /* WCCallInspector.h */,
+				243262021CC7812400F96145 /* WCCallInspector.m */,
+			);
+			name = WCCall;
+			sourceTree = "<group>";
+		};
 		24FB878D1CC0E1590054161D = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +102,7 @@
 		24FB87981CC0E1590054161D /* contactsAddressBook */ = {
 			isa = PBXGroup;
 			children = (
+				243261FC1CC7811900F96145 /* WCCall */,
 				2441D2571CC61CDB00BBC6D4 /* TSZABHelper.h */,
 				2441D2581CC61CDB00BBC6D4 /* TSZABHelper.m */,
 				249F8D531CC4F4FB00AAEFD2 /* TSZMoreViewController.h */,
@@ -181,12 +209,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				243262041CC7812400F96145 /* WCCallCenter.m in Sources */,
 				24FB87A11CC0E1590054161D /* ViewController.m in Sources */,
 				249F8D561CC4F4FB00AAEFD2 /* TSZMoreViewController.m in Sources */,
 				2441D2591CC61CDB00BBC6D4 /* TSZABHelper.m in Sources */,
+				243262031CC7812400F96145 /* WCCall.m in Sources */,
+				243262081CC785F600F96145 /* WCUtil.m in Sources */,
 				24FB879E1CC0E1590054161D /* AppDelegate.m in Sources */,
 				24FB879B1CC0E1590054161D /* main.m in Sources */,
 				24FB87B41CC0FC370054161D /* TSZAddPersonViewController.m in Sources */,
+				243262051CC7812400F96145 /* WCCallInspector.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +332,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				INFOPLIST_FILE = contactsAddressBook/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -312,6 +345,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				INFOPLIST_FILE = contactsAddressBook/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
