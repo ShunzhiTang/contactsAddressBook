@@ -124,7 +124,7 @@
     self.allPonser = (__bridge NSMutableArray *)(allPerson);
     
     
-    NSLog(@"all = %@" , self.allPonser);
+//    NSLog(@"all = %@" , self.allPonser);
     
     // 必须手动释放资源
     CFRelease(allPerson);
@@ -140,9 +140,6 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    
-    
-    NSLog(@"count = %zd" , self.allPonser.count);
     
     return  self.allPonser.count;
 }
