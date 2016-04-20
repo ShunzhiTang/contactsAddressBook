@@ -65,6 +65,14 @@
     
     [self.tableView setEditing:YES animated:YES];
     
+    
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    
+    [super viewDidAppear:animated];
+    [self.tableView reloadData];
 }
 
 #pragma mark: 请求数据库初始化
@@ -115,6 +123,9 @@
     
     self.allPonser = (__bridge NSMutableArray *)(allPerson);
     
+    
+    NSLog(@"all = %@" , self.allPonser);
+    
     // 必须手动释放资源
     CFRelease(allPerson);
     
@@ -129,6 +140,9 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
+    
+    NSLog(@"count = %zd" , self.allPonser.count);
     
     return  self.allPonser.count;
 }

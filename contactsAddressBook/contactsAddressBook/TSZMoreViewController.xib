@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TSZMoreViewController">
             <connections>
+                <outlet property="operatorLabel" destination="KrA-vh-10Z" id="j4R-zP-fzF"/>
                 <outlet property="phoneNumberTextFiled" destination="chh-3r-S15" id="zUG-Xl-fNx"/>
                 <outlet property="resultLabel" destination="nWT-lL-r8b" id="lfY-Cp-wd7"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -23,7 +24,7 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请输入电话号码：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iiV-ky-jXS">
                             <rect key="frame" x="10" y="15" width="268" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="chh-3r-S15">
@@ -74,15 +75,35 @@
                     <rect key="frame" x="20" y="420" width="560" height="30"/>
                     <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="结果" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KrA-vh-10Z">
+                    <rect key="frame" x="310" y="210" width="270" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pHy-Au-fuI">
+                    <rect key="frame" x="20" y="210" width="270" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="4Ds-Fn-Jut"/>
+                    </constraints>
+                    <state key="normal" title="获取运营商信息：">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="queryOperator:" destination="-1" eventType="touchUpInside" id="je1-3s-Qgy"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="nWT-lL-r8b" firstAttribute="height" secondItem="zYS-DN-FHs" secondAttribute="height" id="5ok-dR-6Kn"/>
                 <constraint firstItem="nWT-lL-r8b" firstAttribute="top" secondItem="zYS-DN-FHs" secondAttribute="bottom" constant="30" id="8eg-w1-hsa"/>
                 <constraint firstItem="nWT-lL-r8b" firstAttribute="leading" secondItem="zYS-DN-FHs" secondAttribute="trailing" constant="-480" id="9jW-cE-Fd6"/>
+                <constraint firstItem="zQe-eh-PYf" firstAttribute="top" secondItem="pHy-Au-fuI" secondAttribute="bottom" constant="30" id="CHR-pK-6cz"/>
+                <constraint firstItem="KrA-vh-10Z" firstAttribute="height" secondItem="pHy-Au-fuI" secondAttribute="height" id="Mms-bN-7yg"/>
                 <constraint firstItem="nWT-lL-r8b" firstAttribute="leading" secondItem="zYS-DN-FHs" secondAttribute="trailing" constant="-480" id="MyN-HU-Cbc"/>
                 <constraint firstItem="zYS-DN-FHs" firstAttribute="top" secondItem="zQe-eh-PYf" secondAttribute="bottom" constant="30" id="N4b-ka-2yq"/>
                 <constraint firstItem="nWT-lL-r8b" firstAttribute="leading" secondItem="zYS-DN-FHs" secondAttribute="leading" id="OIi-2P-xt0"/>
@@ -90,12 +111,17 @@
                 <constraint firstAttribute="trailing" secondItem="zYS-DN-FHs" secondAttribute="trailing" constant="20" id="PvT-Hp-p3u"/>
                 <constraint firstItem="zYS-DN-FHs" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="TCL-F5-vDa"/>
                 <constraint firstAttribute="trailing" secondItem="zQe-eh-PYf" secondAttribute="trailing" constant="20" id="TKO-9K-nO8"/>
+                <constraint firstItem="pHy-Au-fuI" firstAttribute="leading" secondItem="zQe-eh-PYf" secondAttribute="leading" id="ZQV-gk-zIE"/>
                 <constraint firstItem="zYS-DN-FHs" firstAttribute="width" secondItem="zQe-eh-PYf" secondAttribute="width" id="a7g-rf-OI1"/>
+                <constraint firstItem="KrA-vh-10Z" firstAttribute="leading" secondItem="pHy-Au-fuI" secondAttribute="trailing" constant="20" id="cAW-1E-pAv"/>
+                <constraint firstItem="KrA-vh-10Z" firstAttribute="trailing" secondItem="zQe-eh-PYf" secondAttribute="trailing" id="emo-Sg-beC"/>
                 <constraint firstItem="zYS-DN-FHs" firstAttribute="top" secondItem="zQe-eh-PYf" secondAttribute="bottom" constant="30" id="g7C-nT-kam"/>
                 <constraint firstItem="nWT-lL-r8b" firstAttribute="width" secondItem="zYS-DN-FHs" secondAttribute="width" id="itC-bI-2wo"/>
                 <constraint firstItem="zQe-eh-PYf" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="j1n-nD-WOK"/>
+                <constraint firstItem="KrA-vh-10Z" firstAttribute="centerY" secondItem="pHy-Au-fuI" secondAttribute="centerY" id="l52-pW-VtT"/>
                 <constraint firstItem="nWT-lL-r8b" firstAttribute="top" secondItem="zYS-DN-FHs" secondAttribute="bottom" constant="30" id="lkY-7C-NyV"/>
                 <constraint firstItem="nWT-lL-r8b" firstAttribute="top" secondItem="zYS-DN-FHs" secondAttribute="bottom" constant="30" id="nAc-a2-ydo"/>
+                <constraint firstItem="KrA-vh-10Z" firstAttribute="width" secondItem="pHy-Au-fuI" secondAttribute="width" id="pv7-p4-pBK"/>
                 <constraint firstItem="nWT-lL-r8b" firstAttribute="top" secondItem="zYS-DN-FHs" secondAttribute="bottom" constant="43" id="qrn-Lz-iL4"/>
                 <constraint firstItem="zQe-eh-PYf" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="sub-Ro-EAp"/>
                 <constraint firstItem="zQe-eh-PYf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="x9k-Ld-stJ"/>
