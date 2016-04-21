@@ -212,6 +212,8 @@
         
         NSLog(@" self.recordsArr = %@ " , self.allPerson);
         
+        NSUInteger count = 0;
+        
         
         @autoreleasepool {
             
@@ -254,7 +256,8 @@
                             ABAddressBookRemoveRecord(self.addressBook, record, NULL);
                             
                             // 保存电话本
-                          
+                            
+                            count++;
                             
                             continue;
                            
@@ -263,15 +266,19 @@
                 
             }
         }
-        
         ABAddressBookSave(self.addressBook, NULL);
         
         CFRelease(self.addressBook);
         
-         return  YES;
-        //    return  YES;
+        if (count > 0 ) {
+            
+            return YES;
+        }
         
     }
+    
+   
+    
     
     return NO;
 }

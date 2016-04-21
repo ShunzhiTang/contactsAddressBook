@@ -225,6 +225,16 @@
     if (flag) {
         
         NSLog(@"删除成功");
+        
+        UIAlertView *alartView = [[UIAlertView alloc] initWithTitle:@"提醒" message:@"删除成功" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        
+        [alartView show];
+    }else{
+        
+        UIAlertView *alartView = [[UIAlertView alloc] initWithTitle:@"提醒" message:@"删除失败" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        
+        [alartView show];
+        
     }
 }
 
