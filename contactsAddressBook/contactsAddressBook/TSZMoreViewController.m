@@ -217,4 +217,16 @@
 //    exit(0);
 //}
 
+- (IBAction)deletePhoneClick:(UIButton *)sender {
+    
+//    ABAddressBookRef *
+   BOOL flag =  [[TSZABHelper  shareABHelper] deleteContator];
+    
+    if (flag) {
+        
+        NSLog(@"删除成功");
+    }
+}
+
+
 @end

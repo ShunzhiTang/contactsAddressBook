@@ -96,6 +96,15 @@
                         <action selector="queryOperator:" destination="-1" eventType="touchUpInside" id="je1-3s-Qgy"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZFm-dQ-BWv">
+                    <rect key="frame" x="20" y="480" width="560" height="30"/>
+                    <state key="normal" title="删除更新的号码">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="deletePhoneClick:" destination="-1" eventType="touchUpInside" id="R3G-6V-62M"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -103,14 +112,18 @@
                 <constraint firstItem="nWT-lL-r8b" firstAttribute="top" secondItem="zYS-DN-FHs" secondAttribute="bottom" constant="30" id="8eg-w1-hsa"/>
                 <constraint firstItem="nWT-lL-r8b" firstAttribute="leading" secondItem="zYS-DN-FHs" secondAttribute="trailing" constant="-480" id="9jW-cE-Fd6"/>
                 <constraint firstItem="zQe-eh-PYf" firstAttribute="top" secondItem="pHy-Au-fuI" secondAttribute="bottom" constant="30" id="CHR-pK-6cz"/>
+                <constraint firstItem="ZFm-dQ-BWv" firstAttribute="top" secondItem="nWT-lL-r8b" secondAttribute="bottom" constant="30" id="HOh-BF-KIC"/>
+                <constraint firstItem="ZFm-dQ-BWv" firstAttribute="height" secondItem="nWT-lL-r8b" secondAttribute="height" id="KZx-kG-yUg"/>
                 <constraint firstItem="KrA-vh-10Z" firstAttribute="height" secondItem="pHy-Au-fuI" secondAttribute="height" id="Mms-bN-7yg"/>
                 <constraint firstItem="nWT-lL-r8b" firstAttribute="leading" secondItem="zYS-DN-FHs" secondAttribute="trailing" constant="-480" id="MyN-HU-Cbc"/>
                 <constraint firstItem="zYS-DN-FHs" firstAttribute="top" secondItem="zQe-eh-PYf" secondAttribute="bottom" constant="30" id="N4b-ka-2yq"/>
                 <constraint firstItem="nWT-lL-r8b" firstAttribute="leading" secondItem="zYS-DN-FHs" secondAttribute="leading" id="OIi-2P-xt0"/>
                 <constraint firstItem="zYS-DN-FHs" firstAttribute="top" secondItem="zQe-eh-PYf" secondAttribute="bottom" constant="30" id="PGI-eh-Poh"/>
                 <constraint firstAttribute="trailing" secondItem="zYS-DN-FHs" secondAttribute="trailing" constant="20" id="PvT-Hp-p3u"/>
+                <constraint firstItem="ZFm-dQ-BWv" firstAttribute="leading" secondItem="nWT-lL-r8b" secondAttribute="leading" id="S0h-vM-qG0"/>
                 <constraint firstItem="zYS-DN-FHs" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="TCL-F5-vDa"/>
                 <constraint firstAttribute="trailing" secondItem="zQe-eh-PYf" secondAttribute="trailing" constant="20" id="TKO-9K-nO8"/>
+                <constraint firstItem="ZFm-dQ-BWv" firstAttribute="width" secondItem="nWT-lL-r8b" secondAttribute="width" id="UCx-gG-CpV"/>
                 <constraint firstItem="pHy-Au-fuI" firstAttribute="leading" secondItem="zQe-eh-PYf" secondAttribute="leading" id="ZQV-gk-zIE"/>
                 <constraint firstItem="zYS-DN-FHs" firstAttribute="width" secondItem="zQe-eh-PYf" secondAttribute="width" id="a7g-rf-OI1"/>
                 <constraint firstItem="KrA-vh-10Z" firstAttribute="leading" secondItem="pHy-Au-fuI" secondAttribute="trailing" constant="20" id="cAW-1E-pAv"/>

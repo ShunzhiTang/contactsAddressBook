@@ -23,5 +23,10 @@
 
 - (BOOL)existPhone:(NSString *)phoneNum;
 
+/**
+    删除
+ */
+
+- (BOOL)deleteContator;
 
 @end

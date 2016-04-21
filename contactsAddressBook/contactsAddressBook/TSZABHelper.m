@@ -196,4 +196,86 @@
 }
 
 
+/**
+  删除我插入的联系人
+ 
+ */
+
+- (BOOL)deleteContator{
+    
+    NSLog(@"requestAddressBook = %zd" , [self initAllPerson]);
+    
+    if ([self initAllPerson]) {
+        
+        
+        // 遍历 全部联系人
+        
+        NSLog(@" self.recordsArr = %@ " , self.allPerson);
+        
+        
+        @autoreleasepool {
+            
+            for (int  i = 0;  i <  self.allPerson.count ;  i++) {
+                
+                ABRecordRef record =  (__bridge ABRecordRef)(self.allPerson[i]);
+                
+                ABMultiValueRef   items  =  ABRecordCopyValue(record, kABPersonPhoneProperty);
+                
+                CFArrayRef phoneNumbers = ABMultiValueCopyArrayOfAllValues(items);
+                
+                
+                //有联系人
+                
+                if (phoneNumbers) {
+                    
+                    // 遍历
+                        
+                        NSString *phone  = (NSString *)CFArrayGetValueAtIndex(phoneNumbers, 0);
+                        
+//                        NSString *correctPhone = [self correctFormatPhoneNuber:phone];
+                        
+                        
+                        NSLog(@"phone11 = %@" , phone);
+                        
+//                        NSLog(@"correctPhone = %@" , correctPhone);
+                        
+                        // 判断
+                        
+                         NSString  *flagArr = (__bridge NSString *)ABMultiValueCopyLabelAtIndex(items , 0);
+                        
+                        if ([phone isEqualToString:@"13522505750"] && [flagArr isEqualToString:@"销售电话"]) {
+                            
+                           
+                            
+                            NSLog(@"phone = %@ " , phone);
+                            NSLog(@" flagArr = %@" , flagArr);
+                            
+                            // 删除
+                            ABAddressBookRemoveRecord(self.addressBook, record, NULL);
+                            
+                            // 保存电话本
+                          
+                            
+                            continue;
+                           
+                    }
+                }
+                
+            }
+        }
+        
+        ABAddressBookSave(self.addressBook, NULL);
+        
+        CFRelease(self.addressBook);
+        
+         return  YES;
+        //    return  YES;
+        
+    }
+    
+    return NO;
+}
+
+
+
 @end
