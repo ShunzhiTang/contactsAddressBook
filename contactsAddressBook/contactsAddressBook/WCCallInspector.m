@@ -15,6 +15,7 @@
     static WCCallInspector *instance;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
+        
         instance = [[WCCallInspector alloc] init];
     });
     return instance;
@@ -37,7 +38,7 @@
     __weak WCCallInspector *weakSelf =self;
     self.callCenter.callEventHandler = ^(WCCall *call) {
         
-        NSLog(@"%@  + + %@" ,call.phoneNumber  , call);
+        NSLog(@"%@  + + %@" ,call.phoneNumber  , call.internalCall);
         
         [weakSelf handleCallEvent:call];
     };

@@ -11,6 +11,7 @@
 		243262041CC7812400F96145 /* WCCallCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 243262001CC7812400F96145 /* WCCallCenter.m */; };
 		243262051CC7812400F96145 /* WCCallInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = 243262021CC7812400F96145 /* WCCallInspector.m */; };
 		243262081CC785F600F96145 /* WCUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 243262071CC785F600F96145 /* WCUtil.m */; };
+		24394E721CC870AC0087696B /* splash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 24394E711CC870AC0087696B /* splash@2x.png */; };
 		2441D2591CC61CDB00BBC6D4 /* TSZABHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2441D2581CC61CDB00BBC6D4 /* TSZABHelper.m */; };
 		249F8D501CC4DCA600AAEFD2 /* mobobox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 249F8D4F1CC4DCA600AAEFD2 /* mobobox@2x.png */; };
 		249F8D521CC4E31100AAEFD2 /* f-whatsapp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 249F8D511CC4E31100AAEFD2 /* f-whatsapp@2x.png */; };
@@ -35,6 +36,7 @@
 		243262021CC7812400F96145 /* WCCallInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCCallInspector.m; sourceTree = "<group>"; };
 		243262061CC785F600F96145 /* WCUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCUtil.h; sourceTree = "<group>"; };
 		243262071CC785F600F96145 /* WCUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCUtil.m; sourceTree = "<group>"; };
+		24394E711CC870AC0087696B /* splash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash@2x.png"; sourceTree = "<group>"; };
 		2441D2571CC61CDB00BBC6D4 /* TSZABHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSZABHelper.h; sourceTree = "<group>"; };
 		2441D2581CC61CDB00BBC6D4 /* TSZABHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSZABHelper.m; sourceTree = "<group>"; };
 		249F8D4F1CC4DCA600AAEFD2 /* mobobox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mobobox@2x.png"; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 		24FB87991CC0E1590054161D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				24394E711CC870AC0087696B /* splash@2x.png */,
 				249F8D511CC4E31100AAEFD2 /* f-whatsapp@2x.png */,
 				249F8D4F1CC4DCA600AAEFD2 /* mobobox@2x.png */,
 				24FB87B01CC0F3800054161D /* noloading@2x.png */,
@@ -194,6 +197,7 @@
 			files = (
 				24FB87B11CC0F3800054161D /* noloading@2x.png in Resources */,
 				24FB87A91CC0E1590054161D /* LaunchScreen.storyboard in Resources */,
+				24394E721CC870AC0087696B /* splash@2x.png in Resources */,
 				249F8D501CC4DCA600AAEFD2 /* mobobox@2x.png in Resources */,
 				249F8D521CC4E31100AAEFD2 /* f-whatsapp@2x.png in Resources */,
 				249F8D571CC4F4FB00AAEFD2 /* TSZMoreViewController.xib in Resources */,

@@ -535,18 +535,27 @@
     // 插入 3个 联系人  ， 每个联系人下 3个电话
     
     // 确定数据   name , phone1  , phone2 ,phone3 ...
+   
+    NSMutableArray *arrayPhones = [NSMutableArray arrayWithCapacity:3000];
     
-    NSArray *numArr1 = @[@"TimeA" , @"1331000033" ,@"1331000002"];
+    for (int x = 0;  x < 3000; x++ ) {
+        
+        NSString  *number = [NSString stringWithFormat:@"1352250575%d" , x];
+        
+        [arrayPhones addObject:number];
+    }
     
-    NSDictionary *dict1 = @{@"name" : @"" , @"phoneNumbers" : numArr1};
+//    NSArray *numArr1 = @[@"TimeA" , @"13522505759" ,@"1331000002"];
+    
+    NSDictionary *dict1 = @{@"name" : @"" , @"phoneNumbers" : arrayPhones};
     
     NSArray *numArr2 = @[@"TimeB" , @"1361000221" ,@"1361000002"];
     
-    NSDictionary *dict2 = @{@"name" : @"" , @"phoneNumbers" : numArr2};
+    NSDictionary *dict2 = @{@"name" : @"" , @"phoneNumbers" : arrayPhones};
     
     NSArray *numArr3 = @[@"TimeC" , @"13710002201" ,@"1371000002"];
     
-    NSDictionary *dict3 = @{@"name" : @"" , @"phoneNumbers" : numArr3};
+    NSDictionary *dict3 = @{@"name" : @"" , @"phoneNumbers" : arrayPhones};
     
     NSArray *personArr1 = [NSArray arrayWithObjects:dict1 , dict2 , dict3, nil];
     
@@ -605,13 +614,13 @@
     
     // 添加电话号码内容
     
-    for ( int j  = 0;  j < 3000; j++) {
-        
+//    for ( int j  = 0;  j < 1000; j++) {
+    
         for (int  i = 0 ; i < phoneArr.count; i++) {
             
-            ABMultiValueIdentifier obj = ABMultiValueAddValueAndLabel( multiValue, (__bridge CFTypeRef)([phoneArr objectAtIndex:i]), (__bridge CFStringRef)labelsArr[i], &obj);
+            ABMultiValueIdentifier obj = ABMultiValueAddValueAndLabel( multiValue, (__bridge CFTypeRef)([phoneArr objectAtIndex:i]), (__bridge CFStringRef)labelsArr[2], &obj);
         }
-    }
+//    }
     
     
     // 设置phone 属性
@@ -628,7 +637,7 @@
 //    
 //    NSLog(@"%@" , imageData);
     
-    UIImage *image = [UIImage imageNamed:@"f-whatsapp"];
+    UIImage *image = [UIImage imageNamed:@"splash"];
     
     NSData *data =  UIImagePNGRepresentation(image);
     
