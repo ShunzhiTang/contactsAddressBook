@@ -193,7 +193,7 @@
         middleName = @"";
     }
     
-    NSLog( @"1 = %@ , 2= %@ ， 3 = %@" ,firstName ,middleName, lastName);
+//    NSLog( @"1 = %@ , 2= %@ ， 3 = %@" ,firstName ,middleName, lastName);
     
     NSString *name = [NSString stringWithFormat:@"%@ %@ %@" , firstName ,middleName, lastName];
     
@@ -218,7 +218,7 @@
         
     }else{
         
-         cell.imageView.image = [UIImage imageNamed:@"noloading"];
+         cell.imageView.image = [UIImage imageNamed:@"noloadin.png"];
         
     }
     
