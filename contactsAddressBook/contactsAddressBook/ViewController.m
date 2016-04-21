@@ -72,6 +72,8 @@
 - (void)viewDidAppear:(BOOL)animated{
     
     [super viewDidAppear:animated];
+    
+     [self initAllPerson];
     [self.tableView reloadData];
 }
 

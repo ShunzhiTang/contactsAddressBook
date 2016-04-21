@@ -88,14 +88,19 @@
                     
                     NSLog(@"phone = %@ " , phone);
                     NSLog(@" flagArr = %@" , flagArr);
+//                    CFRelease(flagArr);
                     return  YES;
                 }
             }
         }
         
+            CFRelease(record);
     }
+            
     }
+        
     CFRelease(self.addressBook);
+        
 //    return  YES;
         
 }
@@ -203,14 +208,14 @@
 
 - (BOOL)deleteContator{
     
-    NSLog(@"requestAddressBook = %zd" , [self initAllPerson]);
+//    NSLog(@"requestAddressBook = %zd" , [self initAllPerson]);
     
     if ([self initAllPerson]) {
         
         
         // 遍历 全部联系人
         
-        NSLog(@" self.recordsArr = %@ " , self.allPerson);
+//        NSLog(@" self.recordsArr = %@ " , self.allPerson);
         
         NSUInteger count = 0;
         
@@ -264,8 +269,11 @@
                     }
                 }
                 
+                CFRelease(record);
             }
+            
         }
+        
         ABAddressBookSave(self.addressBook, NULL);
         
         CFRelease(self.addressBook);
@@ -276,8 +284,6 @@
         }
         
     }
-    
-   
     
     
     return NO;
