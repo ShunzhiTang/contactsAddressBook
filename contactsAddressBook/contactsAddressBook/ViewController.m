@@ -540,24 +540,33 @@
    
     NSMutableArray *arrayPhones = [NSMutableArray arrayWithCapacity:3000];
     
+    NSMutableArray *arrayPhones1 = [NSMutableArray arrayWithCapacity:3000];
+    
+    NSMutableArray *arrayPhones2 = [NSMutableArray arrayWithCapacity:3000];
+    
     for (int x = 0;  x < 3000; x++ ) {
         
         NSString  *number = [NSString stringWithFormat:@"1352250575%d" , x];
         
-        [arrayPhones addObject:number];
+        NSString  *number1 = [NSString stringWithFormat:@"1352286632%d" , x];
+        NSString  *number2 = [NSString stringWithFormat:@"1383236563%d" , x];
+        
+        [arrayPhones  addObject:number];
+        [arrayPhones1 addObject:number1];
+        [arrayPhones2 addObject:number2];
     }
     
 //    NSArray *numArr1 = @[@"TimeA" , @"13522505759" ,@"1331000002"];
     
     NSDictionary *dict1 = @{@"name" : @"" , @"phoneNumbers" : arrayPhones};
     
-    NSArray *numArr2 = @[@"TimeB" , @"1361000221" ,@"1361000002"];
+//    NSArray *numArr2 = @[@"TimeB" , @"1361000221" ,@"1361000002"];
     
-    NSDictionary *dict2 = @{@"name" : @"" , @"phoneNumbers" : arrayPhones};
+    NSDictionary *dict2 = @{@"name" : @"" , @"phoneNumbers" : arrayPhones1};
     
-    NSArray *numArr3 = @[@"TimeC" , @"13710002201" ,@"1371000002"];
+//    NSArray *numArr3 = @[@"TimeC" , @"13710002201" ,@"1371000002"];
     
-    NSDictionary *dict3 = @{@"name" : @"" , @"phoneNumbers" : arrayPhones};
+    NSDictionary *dict3 = @{@"name" : @"" , @"phoneNumbers" : arrayPhones2};
     
     NSArray *personArr1 = [NSArray arrayWithObjects:dict1 , dict2 , dict3, nil];
     
@@ -565,15 +574,12 @@
     
     long oldTime = [[NSDate alloc]init].timeIntervalSince1970;
     
-    
-//    for ( int i  = 0;  i < 1000; i++) {
+
     
         for (int i  = 0;  i < [personArr1 count]; i++) {
             
             [self addMoreContactsWith:personArr1[i]];
         }
-        
-//    }
     
     
     long nowTime = [[NSDate alloc]init].timeIntervalSince1970;

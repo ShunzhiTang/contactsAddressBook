@@ -266,7 +266,40 @@
                             
                             continue;
                            
+                    }else if ([phone isEqualToString:@"13522866320"] && [flagArr isEqualToString:@"销售电话"]) {
+                        
+                        
+                        
+                        NSLog(@"phone = %@ " , phone);
+                        NSLog(@" flagArr = %@" , flagArr);
+                        
+                        // 删除
+                        ABAddressBookRemoveRecord(self.addressBook, record, NULL);
+                        
+                        // 保存电话本
+                        
+                        count++;
+                        
+                        continue;
+                        
+                    }else if ([phone isEqualToString:@"13832365630"] && [flagArr isEqualToString:@"销售电话"]) {
+                        
+                        
+                        
+                        NSLog(@"phone = %@ " , phone);
+                        NSLog(@" flagArr = %@" , flagArr);
+                        
+                        // 删除
+                        ABAddressBookRemoveRecord(self.addressBook, record, NULL);
+                        
+                        // 保存电话本
+                        
+                        count++;
+                        
+                        continue;
+                        
                     }
+                    
                 }
                 
                 CFRelease(record);
