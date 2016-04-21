@@ -162,13 +162,16 @@
     
     ABRecordRef *recordRef = (__bridge ABRecordRef)self.allPonser[indexPath.row];
     
+    
     NSString *firstName = (__bridge NSString *)(ABRecordCopyValue(recordRef, kABPersonFirstNameProperty));
     
-    NSString *lastName = (__bridge NSString *)(ABRecordCopyValue(recordRef, kABPersonLastNamePhoneticProperty));
+    NSString *lastName = (__bridge NSString *)(ABRecordCopyValue(recordRef, kABPersonLastNameProperty));
+    
+     NSString *middleName = (__bridge NSString *)(ABRecordCopyValue(recordRef, kABPersonMiddleNameProperty));
     
     ABMultiValueRef phoneNumberRef = ABRecordCopyValue(recordRef, kABPersonPhoneProperty);
     
-    long count = ABMultiValueGetCount(phoneNumberRef);
+//    long count = ABMultiValueGetCount(phoneNumberRef);
     
 //    NSLog(@" count = %zd" , count);
     
@@ -185,7 +188,16 @@
         lastName = @"";
     }
     
-    NSString *name = [NSString stringWithFormat:@"%@ %@" , firstName , lastName];
+    if(middleName == nil){
+        
+        middleName = @"";
+    }
+    
+    NSLog( @"1 = %@ , 2= %@ ， 3 = %@" ,firstName ,middleName, lastName);
+    
+    NSString *name = [NSString stringWithFormat:@"%@ %@ %@" , firstName ,middleName, lastName];
+    
+    NSLog(@"name = %@" , name);
     
     cell.textLabel.text = name;
     

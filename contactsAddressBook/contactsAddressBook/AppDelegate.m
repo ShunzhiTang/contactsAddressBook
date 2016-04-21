@@ -56,11 +56,13 @@
     
     UINavigationController *naVc = [[UINavigationController alloc] initWithRootViewController:rootVc];
     
+//     [[WCCallInspector sharedInspector] startInspect];
+    
     self.window.rootViewController = naVc;
     
     [self.window makeKeyAndVisible];
     
-    [[WCCallInspector sharedInspector] startInspect];
+//
     
     return YES;
 }
