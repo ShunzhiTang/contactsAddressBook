@@ -216,10 +216,10 @@
         
         cell.imageView.image = [UIImage imageWithData:image];
         
+        
     }else{
         
-         cell.imageView.image = [UIImage imageNamed:@"noloadin.png"];
-        
+         cell.imageView.image = [UIImage imageNamed:@"load.png"];
     }
     
     // 使用cell的tag 记录id
