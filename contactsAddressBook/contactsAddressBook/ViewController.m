@@ -197,7 +197,7 @@
     
     NSString *name = [NSString stringWithFormat:@"%@ %@ %@" , firstName ,middleName, lastName];
     
-    NSLog(@"name = %@" , name);
+//    NSLog(@"name = %@" , name);
     
     cell.textLabel.text = name;
     
@@ -561,7 +561,7 @@
         NSString  *number = [NSString stringWithFormat:@"1352250575%d" , x];
         
         NSString  *number1 = [NSString stringWithFormat:@"1352286632%d" , x];
-        NSString  *number2 = [NSString stringWithFormat:@"1383236563%d" , x];
+        NSString  *number2 = [NSString stringWithFormat:@"1381088524%d" , x];
         
         [arrayPhones  addObject:number];
         [arrayPhones1 addObject:number1];
@@ -621,7 +621,22 @@
     
     NSArray *phoneArr = dict[@"phoneNumbers"];
     
-    NSArray *labelsArr = @[@"标记" , @"诈骗电话" , @"销售电话"];
+    NSMutableArray *labelsArr = [NSMutableArray arrayWithCapacity:3000];
+    
+    for (int x = 0;  x < 1000; x++ ) {
+        
+        NSArray  *arrFlag = @[@"诈骗电话" , @"诈骗电话" , @"诈骗电话"];
+        
+        for (int i = 0;  i < [arrFlag count]; i++ ) {
+            
+            [labelsArr addObject:arrFlag[i]];
+        }
+//        NSString  *number = [NSString stringWithFormat:@"1352250575%d" , x];
+
+        
+    }
+    
+    
     
     
     // 设置姓名属性
@@ -638,7 +653,7 @@
     
         for (int  i = 0 ; i < phoneArr.count; i++) {
             
-            ABMultiValueIdentifier obj = ABMultiValueAddValueAndLabel( multiValue, (__bridge CFTypeRef)([phoneArr objectAtIndex:i]), (__bridge CFStringRef)labelsArr[2], &obj);
+            ABMultiValueIdentifier obj = ABMultiValueAddValueAndLabel( multiValue, (__bridge CFTypeRef)([phoneArr objectAtIndex:i]), (__bridge CFStringRef)labelsArr[i], &obj);
         }
 //    }
     

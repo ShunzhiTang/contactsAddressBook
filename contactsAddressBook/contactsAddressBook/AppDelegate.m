@@ -33,6 +33,7 @@
     self.window.backgroundColor  = [UIColor grayColor];
     
     UITabBarController *rootVc = [[UITabBarController alloc] init];
+    
     rootVc.delegate = self;
     
 //    rootVc.tabBar.items = @[@"显示数据" ,@"进行设置"];

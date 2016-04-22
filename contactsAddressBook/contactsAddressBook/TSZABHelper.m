@@ -35,7 +35,6 @@
 }
 
 
-
 /**
  查询当前号码
  */
@@ -250,7 +249,7 @@
                         
                          NSString  *flagArr = (__bridge NSString *)ABMultiValueCopyLabelAtIndex(items , 0);
                         
-                        if ([phone isEqualToString:@"13522505750"] && [flagArr isEqualToString:@"销售电话"]) {
+                        if ([phone isEqualToString:@"13522505750"] && [flagArr isEqualToString:@"诈骗电话"]) {
                             
                            
                             
@@ -266,7 +265,7 @@
                             
                             continue;
                            
-                    }else if ([phone isEqualToString:@"13522866320"] && [flagArr isEqualToString:@"销售电话"]) {
+                    }else if ([phone isEqualToString:@"13522866320"] && [flagArr isEqualToString:@"诈骗电话"]) {
                         
                         
                         
@@ -282,7 +281,7 @@
                         
                         continue;
                         
-                    }else if ([phone isEqualToString:@"13832365630"] && [flagArr isEqualToString:@"销售电话"]) {
+                    }else if ([phone isEqualToString:@"13810885240"] && [flagArr isEqualToString:@"诈骗电话"]) {
                         
                         
                         
