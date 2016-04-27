@@ -11,8 +11,8 @@
 #import "ViewController.h"
 
 #import "TSZMoreViewController.h"
-#import "WCCallInspector.h"
-#import <AudioToolbox/AudioToolbox.h>
+//#import "WCCallInspector.h"
+//#import <AudioToolbox/AudioToolbox.h>
 @interface AppDelegate ()<UITabBarControllerDelegate>
 
 @end

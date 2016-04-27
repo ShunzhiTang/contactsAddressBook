@@ -12,6 +12,10 @@
 #import <AddressBookUI/AddressBookUI.h>
 #import "TSZAddPersonViewController.h"
 
+#import "TSZCircleProgressPercentView.h"
+
+#import "SVProgressHUD.h"
+
 @interface ViewController ()<UITableViewDelegate , UITableViewDataSource , TSZContactDelegate , ABNewPersonViewControllerDelegate>
 
 @property (nonatomic , assign) ABAddressBookRef addressBook;
@@ -25,6 +29,8 @@
 @property (nonatomic ,assign) BOOL isModify;
 
 @property (nonatomic ,strong  ) UITableViewCell *selectedCell;
+
+@property (nonatomic ,strong) TSZCircleProgressPercentView *proView;
 
 @end
 
@@ -65,7 +71,15 @@
     
     [self.tableView setEditing:YES animated:YES];
     
+    _proView = [[TSZCircleProgressPercentView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
     
+    _proView.center = self.view.center;
+    
+    _proView.percentLabel.font = [UIFont systemFontOfSize:28];
+    
+    [_proView startAnimation];
+    
+    [self.view addSubview:_proView];
     
 }
 
@@ -544,12 +558,19 @@
 
 #pragma mark: 批量插入联系人
 
+
+static int number = 0;
+
 - (void)moreInsertContactsClick{
     
     // 插入 3个 联系人  ， 每个联系人下 3个电话
     
     // 确定数据   name , phone1  , phone2 ,phone3 ...
    
+//    [self addView];
+    
+    number = 0;
+    
     NSMutableArray *arrayPhones = [NSMutableArray arrayWithCapacity:3000];
     
     NSMutableArray *arrayPhones1 = [NSMutableArray arrayWithCapacity:3000];
@@ -567,6 +588,7 @@
         [arrayPhones1 addObject:number1];
         [arrayPhones2 addObject:number2];
     }
+    
     
 //    NSArray *numArr1 = @[@"TimeA" , @"13522505759" ,@"1331000002"];
     
@@ -586,12 +608,20 @@
     
     long oldTime = [[NSDate alloc]init].timeIntervalSince1970;
     
-
+     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+         
+         NSLog(@"NSThread = %@" , [NSThread currentThread]);
+         
+         for (int i  = 0;  i < [personArr1 count]; i++) {
+             
+             [self addMoreContactsWith:personArr1[i]];
+         }
+         
+        
+         
+     });
     
-        for (int i  = 0;  i < [personArr1 count]; i++) {
-            
-            [self addMoreContactsWith:personArr1[i]];
-        }
+    
     
     
     long nowTime = [[NSDate alloc]init].timeIntervalSince1970;
@@ -599,7 +629,7 @@
     
     NSLog(@"耗时 ： %ld" , nowTime - oldTime);
     
-    
+//    [SVProgressHUD showWithStatus:@"写入完成"];
     //重新请求值
     
     [self initAllPerson];
@@ -608,6 +638,8 @@
     
     [self.tableView reloadData];
 }
+
+
 
 - (void)addMoreContactsWith:(NSDictionary *)dict{
     
@@ -625,18 +657,14 @@
     
     for (int x = 0;  x < 1000; x++ ) {
         
+        
         NSArray  *arrFlag = @[@"诈骗电话" , @"诈骗电话" , @"诈骗电话"];
         
         for (int i = 0;  i < [arrFlag count]; i++ ) {
             
             [labelsArr addObject:arrFlag[i]];
         }
-//        NSString  *number = [NSString stringWithFormat:@"1352250575%d" , x];
-
-        
     }
-    
-    
     
     
     // 设置姓名属性
@@ -648,47 +676,74 @@
     ABMultiValueRef multiValue = ABMultiValueCreateMutable(kABMultiStringPropertyType);
     
     // 添加电话号码内容
-    
-//    for ( int j  = 0;  j < 1000; j++) {
-    
+        
         for (int  i = 0 ; i < phoneArr.count; i++) {
             
+            number = number + 1;
+
+            //
             ABMultiValueIdentifier obj = ABMultiValueAddValueAndLabel( multiValue, (__bridge CFTypeRef)([phoneArr objectAtIndex:i]), (__bridge CFStringRef)labelsArr[i], &obj);
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                // 回到主线程显示图片
+                
+//                NSLog(@" num = %f" , (number / 9000.0) * 100.0);
+                //                proView.percent = i / 23233.0;
+                
+                [self addPercentNumber:(number / 9000.0) * 100.0];
+                
+            });
+          
         }
-//    }
+        
+        ABRecordSetValue(person, kABPersonPhoneProperty, multiValue, NULL);
+        
+        // 添加图片
+        
+        //    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"mobobox.png" ofType:nil];
+        //
+        //     NSLog(@"imagePath = %@" , imagePath);
+        //
+        //    NSData *imageData = [NSData dataWithContentsOfFile:imagePath];
+        //
+        //    NSLog(@"%@" , imageData);
+        
+        UIImage *image = [UIImage imageNamed:@"splash"];
+        
+        NSData *data =  UIImagePNGRepresentation(image);
+        
+        ABPersonSetImageData(person, (__bridge CFDataRef)data, NULL);
+        
+        // 保存
+        
+        ABAddressBookAddRecord(self.addressBook, person, NULL);
+        
+        // 保存 通讯录
+        
+        ABAddressBookSave(self.addressBook , NULL);
+        
+        //release
+        // 设置phone 属性
+        if (multiValue)
+            CFRelease(multiValue);
+        
+        if (person)
+            CFRelease(person);
+}
+
+
+- (void)addPercentNumber:(double)number{
     
+    [_proView drawCircleWithPercent: number
+                          duration:1
+                         lineWidth:10
+                         clockwise:YES
+                           lineCap:kCALineCapRound
+                         fillColor:[UIColor whiteColor]
+                       strokeColor:[UIColor orangeColor]
+                    animatedColors:nil];
     
-    // 设置phone 属性
-    
-    ABRecordSetValue(person, kABPersonPhoneProperty, multiValue, NULL);
-    
-    // 添加图片
-    
-//    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"mobobox.png" ofType:nil];
-//    
-//     NSLog(@"imagePath = %@" , imagePath);
-//    
-//    NSData *imageData = [NSData dataWithContentsOfFile:imagePath];
-//    
-//    NSLog(@"%@" , imageData);
-    
-    UIImage *image = [UIImage imageNamed:@"splash"];
-    
-    NSData *data =  UIImagePNGRepresentation(image);
-    
-    ABPersonSetImageData(person, (__bridge CFDataRef)data, NULL);
-    
-    // 保存
-    
-    ABAddressBookAddRecord(self.addressBook, person, NULL);
-    
-    // 保存 通讯录
-    
-    ABAddressBookSave(self.addressBook , NULL);
-    
-    //release
-    
-    CFRelease(person);
 }
 
 

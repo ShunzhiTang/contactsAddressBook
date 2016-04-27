@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		243262031CC7812400F96145 /* WCCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 243261FE1CC7812400F96145 /* WCCall.m */; };
-		243262041CC7812400F96145 /* WCCallCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 243262001CC7812400F96145 /* WCCallCenter.m */; };
-		243262051CC7812400F96145 /* WCCallInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = 243262021CC7812400F96145 /* WCCallInspector.m */; };
-		243262081CC785F600F96145 /* WCUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 243262071CC785F600F96145 /* WCUtil.m */; };
 		24394E721CC870AC0087696B /* splash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 24394E711CC870AC0087696B /* splash@2x.png */; };
 		2441D2591CC61CDB00BBC6D4 /* TSZABHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2441D2581CC61CDB00BBC6D4 /* TSZABHelper.m */; };
+		245094F51CD065F30097503A /* TSZCircleProgressPercentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 245094F11CD065F20097503A /* TSZCircleProgressPercentView.m */; };
+		245094F61CD065F30097503A /* TSZPercentLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 245094F31CD065F20097503A /* TSZPercentLabel.m */; };
+		245095021CD072790097503A /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 245094F91CD072790097503A /* SVIndefiniteAnimatedView.m */; };
+		245095031CD072790097503A /* SVProgressAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 245094FB1CD072790097503A /* SVProgressAnimatedView.m */; };
+		245095041CD072790097503A /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 245094FD1CD072790097503A /* SVProgressHUD.bundle */; };
+		245095051CD072790097503A /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 245094FF1CD072790097503A /* SVProgressHUD.m */; };
+		245095061CD072790097503A /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 245095011CD072790097503A /* SVRadialGradientLayer.m */; };
 		2455FBDF1CC8C4D500A2E3A6 /* load.png in Resources */ = {isa = PBXBuildFile; fileRef = 2455FBDE1CC8C4D500A2E3A6 /* load.png */; };
 		249F8D501CC4DCA600AAEFD2 /* mobobox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 249F8D4F1CC4DCA600AAEFD2 /* mobobox@2x.png */; };
 		249F8D521CC4E31100AAEFD2 /* f-whatsapp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 249F8D511CC4E31100AAEFD2 /* f-whatsapp@2x.png */; };
@@ -28,17 +31,23 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		243261FD1CC7812400F96145 /* WCCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCCall.h; sourceTree = "<group>"; };
-		243261FE1CC7812400F96145 /* WCCall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCCall.m; sourceTree = "<group>"; };
-		243261FF1CC7812400F96145 /* WCCallCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCCallCenter.h; sourceTree = "<group>"; };
-		243262001CC7812400F96145 /* WCCallCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCCallCenter.m; sourceTree = "<group>"; };
-		243262011CC7812400F96145 /* WCCallInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCCallInspector.h; sourceTree = "<group>"; };
-		243262021CC7812400F96145 /* WCCallInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCCallInspector.m; sourceTree = "<group>"; };
-		243262061CC785F600F96145 /* WCUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCUtil.h; sourceTree = "<group>"; };
-		243262071CC785F600F96145 /* WCUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCUtil.m; sourceTree = "<group>"; };
 		24394E711CC870AC0087696B /* splash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash@2x.png"; sourceTree = "<group>"; };
 		2441D2571CC61CDB00BBC6D4 /* TSZABHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSZABHelper.h; sourceTree = "<group>"; };
 		2441D2581CC61CDB00BBC6D4 /* TSZABHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSZABHelper.m; sourceTree = "<group>"; };
+		245094F01CD065F20097503A /* TSZCircleProgressPercentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSZCircleProgressPercentView.h; sourceTree = "<group>"; };
+		245094F11CD065F20097503A /* TSZCircleProgressPercentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSZCircleProgressPercentView.m; sourceTree = "<group>"; };
+		245094F21CD065F20097503A /* TSZPercentLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSZPercentLabel.h; sourceTree = "<group>"; };
+		245094F31CD065F20097503A /* TSZPercentLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSZPercentLabel.m; sourceTree = "<group>"; };
+		245094F81CD072790097503A /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
+		245094F91CD072790097503A /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
+		245094FA1CD072790097503A /* SVProgressAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressAnimatedView.h; sourceTree = "<group>"; };
+		245094FB1CD072790097503A /* SVProgressAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressAnimatedView.m; sourceTree = "<group>"; };
+		245094FC1CD072790097503A /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
+		245094FD1CD072790097503A /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		245094FE1CD072790097503A /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		245094FF1CD072790097503A /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		245095001CD072790097503A /* SVRadialGradientLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVRadialGradientLayer.h; sourceTree = "<group>"; };
+		245095011CD072790097503A /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVRadialGradientLayer.m; sourceTree = "<group>"; };
 		2455FBDE1CC8C4D500A2E3A6 /* load.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = load.png; sourceTree = "<group>"; };
 		249F8D4F1CC4DCA600AAEFD2 /* mobobox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mobobox@2x.png"; sourceTree = "<group>"; };
 		249F8D511CC4E31100AAEFD2 /* f-whatsapp@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "f-whatsapp@2x.png"; sourceTree = "<group>"; };
@@ -70,19 +79,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		243261FC1CC7811900F96145 /* WCCall */ = {
+		245094F41CD065F20097503A /* CircleProgressView */ = {
 			isa = PBXGroup;
 			children = (
-				243262061CC785F600F96145 /* WCUtil.h */,
-				243262071CC785F600F96145 /* WCUtil.m */,
-				243261FD1CC7812400F96145 /* WCCall.h */,
-				243261FE1CC7812400F96145 /* WCCall.m */,
-				243261FF1CC7812400F96145 /* WCCallCenter.h */,
-				243262001CC7812400F96145 /* WCCallCenter.m */,
-				243262011CC7812400F96145 /* WCCallInspector.h */,
-				243262021CC7812400F96145 /* WCCallInspector.m */,
+				245094F01CD065F20097503A /* TSZCircleProgressPercentView.h */,
+				245094F11CD065F20097503A /* TSZCircleProgressPercentView.m */,
+				245094F21CD065F20097503A /* TSZPercentLabel.h */,
+				245094F31CD065F20097503A /* TSZPercentLabel.m */,
 			);
-			name = WCCall;
+			name = CircleProgressView;
+			path = ../../../../drawProgressAnimation/drawProgressAnimation/drawProgressAnimation/CircleProgressView;
+			sourceTree = "<group>";
+		};
+		245094F71CD072790097503A /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				245094F81CD072790097503A /* SVIndefiniteAnimatedView.h */,
+				245094F91CD072790097503A /* SVIndefiniteAnimatedView.m */,
+				245094FA1CD072790097503A /* SVProgressAnimatedView.h */,
+				245094FB1CD072790097503A /* SVProgressAnimatedView.m */,
+				245094FC1CD072790097503A /* SVProgressHUD-Prefix.pch */,
+				245094FD1CD072790097503A /* SVProgressHUD.bundle */,
+				245094FE1CD072790097503A /* SVProgressHUD.h */,
+				245094FF1CD072790097503A /* SVProgressHUD.m */,
+				245095001CD072790097503A /* SVRadialGradientLayer.h */,
+				245095011CD072790097503A /* SVRadialGradientLayer.m */,
+			);
+			path = SVProgressHUD;
 			sourceTree = "<group>";
 		};
 		24FB878D1CC0E1590054161D = {
@@ -104,7 +127,8 @@
 		24FB87981CC0E1590054161D /* contactsAddressBook */ = {
 			isa = PBXGroup;
 			children = (
-				243261FC1CC7811900F96145 /* WCCall */,
+				245094F71CD072790097503A /* SVProgressHUD */,
+				245094F41CD065F20097503A /* CircleProgressView */,
 				2441D2571CC61CDB00BBC6D4 /* TSZABHelper.h */,
 				2441D2581CC61CDB00BBC6D4 /* TSZABHelper.m */,
 				249F8D531CC4F4FB00AAEFD2 /* TSZMoreViewController.h */,
@@ -197,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24FB87A91CC0E1590054161D /* LaunchScreen.storyboard in Resources */,
+				245095041CD072790097503A /* SVProgressHUD.bundle in Resources */,
 				24394E721CC870AC0087696B /* splash@2x.png in Resources */,
 				2455FBDF1CC8C4D500A2E3A6 /* load.png in Resources */,
 				249F8D501CC4DCA600AAEFD2 /* mobobox@2x.png in Resources */,
@@ -214,16 +239,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				243262041CC7812400F96145 /* WCCallCenter.m in Sources */,
 				24FB87A11CC0E1590054161D /* ViewController.m in Sources */,
+				245095031CD072790097503A /* SVProgressAnimatedView.m in Sources */,
 				249F8D561CC4F4FB00AAEFD2 /* TSZMoreViewController.m in Sources */,
+				245095021CD072790097503A /* SVIndefiniteAnimatedView.m in Sources */,
 				2441D2591CC61CDB00BBC6D4 /* TSZABHelper.m in Sources */,
-				243262031CC7812400F96145 /* WCCall.m in Sources */,
-				243262081CC785F600F96145 /* WCUtil.m in Sources */,
 				24FB879E1CC0E1590054161D /* AppDelegate.m in Sources */,
 				24FB879B1CC0E1590054161D /* main.m in Sources */,
+				245095061CD072790097503A /* SVRadialGradientLayer.m in Sources */,
 				24FB87B41CC0FC370054161D /* TSZAddPersonViewController.m in Sources */,
-				243262051CC7812400F96145 /* WCCallInspector.m in Sources */,
+				245094F61CD065F30097503A /* TSZPercentLabel.m in Sources */,
+				245095051CD072790097503A /* SVProgressHUD.m in Sources */,
+				245094F51CD065F30097503A /* TSZCircleProgressPercentView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
